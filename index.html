@@ -360,7 +360,18 @@ button:active {
 
 /* ---------------- MUSIC ---------------- */
 
-let musicStarted = false;
+let currentMusic = null;
+
+function playMusic(file) {
+    if (currentMusic) {
+        currentMusic.pause();
+        currentMusic.currentTime = 0;
+    }
+
+    currentMusic = new Audio(file);
+    currentMusic.loop = true;
+    currentMusic.play();
+}
 
 function startMusic() {
 
@@ -448,7 +459,7 @@ function hideScreens() {
 
 function showAwesome() {
 
-    startMusic();
+    playMusic("WhatsApp Audio 2026-08-27 at 12.53.12 PM.aac");
 
     hideScreens();
 
@@ -479,6 +490,7 @@ function showAlright() {
 /* ---------------- SAD ---------------- */
 
 function showHappy() {
+    playMusic("WhatsApp Audio 2026-08-27 at 12.59.40 PM.aac");
 
     hideScreens();
 
